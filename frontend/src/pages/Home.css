@@ -1,0 +1,110 @@
+/* src/pages/Home.css */
+
+.home-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background-color: #2563eb; /* Blue */
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  .cta-button {
+    background-color: white;
+    color: #2563eb;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background 0.3s;
+  }
+  .cta-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Features Section */
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+  }
+  .feature-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px;
+    padding: 30px;
+    max-width: 300px;
+    text-align: center;
+  }
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  .feature-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .feature-card p {
+    font-size: 0.95rem;
+    color: #666;
+  }
+  
+  /* Testimonials Section */
+  .testimonials {
+    background-color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+  }
+  .testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  .testimonial-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .testimonial-card {
+    background-color: #f1f5f9;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px;
+    font-style: italic;
+  }
+  .testimonial-card strong {
+    display: block;
+    margin-top: 15px;
+    font-style: normal;
+  }
+  .testimonial-card span {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    background-color: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  .cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+  
