@@ -1,10 +1,13 @@
-// backend/db.js
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+const mongoose = require('mongoose');
 
-const db = new sqlite3.Database(path.resolve(__dirname, 'campusconnect.db'), (err) => {
-  if (err) console.error('Failed to connect to database:', err.message);
-  else console.log('Connected to SQLite database');
-});
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('MongoDB connected');
+  } catch (err) {
+    console.error('MongoDB connection error:', err);
+    process.exit(1);
+  }
+};
 
-module.exports = db;
+module.exports = connectDB;

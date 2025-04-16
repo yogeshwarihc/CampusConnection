@@ -1,57 +1,84 @@
-// backend/controllers/authController.js
+const User = require('../models/User');
 const bcrypt = require('bcryptjs');
-const db = require('../db'); // your sqlite connection
+const jwt = require('jsonwebtoken');
 
-const registerUser = async (req, res) => {
+// Normalize full name: remove spaces and lowercase
+const normalizeName = (name) =>
+  name.toLowerCase().replace(/\s+/g, '');
+
+exports.register = async (req, res) => {
+  const { fullName, email, usn, admittedYear, password, confirmPassword } = req.body;
+
+  const errors = {};
+  const nameInEmail = normalizeName(fullName);
+
+  const emailRegex = new RegExp(`^${admittedYear}(cs|is|ec|ee|me|cv)_${nameInEmail}_[a-zA-Z]@nie\\.ac\\.in$`);
+  
+
+  // Email must start with admitted year
+  if (!email.startsWith(admittedYear)) {
+    errors.email = 'Email must start with the admitted year.';
+  }
+
+  // Email format validation
+  if (!emailRegex.test(email)) {
+    errors.email = `Email format is invalid. Expected: ${admittedYear}XX_${nameInEmail}_section@nie.ac.in`;
+  }
+
+  // USN format validation
+  // USN format validation (strict)
+const usnRegex = new RegExp(`^4NI${admittedYear.slice(2)}(CS|IS|EC|EE|ME|CV)[0-9]{3}$`, 'i');
+
+if (!usnRegex.test(usn)) {
+  errors.usn = `USN format is invalid. Expected: 4NI${admittedYear.slice(2)}<BRANCH><ROLL>, e.g., 4NI22IS001`;
+}
+
+
+  // Passwords match
+  if (password !== confirmPassword) {
+    errors.password = 'Passwords do not match.';
+  }
+
+  // If errors exist, return them
+  if (Object.keys(errors).length > 0) {
+    return res.status(400).json({ errors });
+  }
+
   try {
-    const { email, usn, year, branch } = req.body;
+    const existingUser = await User.findOne({ email });
+    if (existingUser) return res.status(400).json({ message: 'User already exists' });
 
-    // Validate email
-    const emailRegex = /^[0-9]{4}[a-z]{2}_[a-z]+_[a-z]+@nie\.ac\.in$/;
-    if (!emailRegex.test(email)) {
-      return res.status(400).json({ message: 'Invalid NIE email format.' });
-    }
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Validate USN
-    const usnRegex = /^4NI\d{2}[A-Z]{2}\d{3}$/;
-    if (!usnRegex.test(usn)) {
-      return res.status(400).json({ message: 'Invalid USN format.' });
-    }
-
-    // Match year from email and USN
-    const emailYear = email.substring(0, 4);
-    const usnYear = '20' + usn.substring(4, 6);
-    if (emailYear !== year || emailYear !== usnYear) {
-      return res.status(400).json({ message: 'Year mismatch between email and USN.' });
-    }
-
-    // Hash the USN to use as password
-    const hashedPassword = await bcrypt.hash(usn, 10);
-
-    // Check for existing user
-    db.get(`SELECT * FROM users WHERE email = ? OR usn = ?`, [email, usn], (err, row) => {
-      if (row) {
-        return res.status(400).json({ message: 'User already registered.' });
-      }
-
-      // Insert into database
-      db.run(
-        `INSERT INTO users (email, usn, year, branch, password) VALUES (?, ?, ?, ?, ?)`,
-        [email, usn, year, branch, hashedPassword],
-        function (err) {
-          if (err) {
-            console.error(err);
-            return res.status(500).json({ message: 'Database error.' });
-          }
-
-          return res.status(201).json({ message: 'Registration successful!' });
-        }
-      );
+    const newUser = new User({
+      fullName,
+      email,
+      usn,
+      admittedYear,
+      password: hashedPassword,
     });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error during registration.' });
+
+    await newUser.save();
+    res.status(201).json({ message: 'User registered successfully' });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
   }
 };
 
-module.exports = { registerUser };
+exports.login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+    if (!user) return res.status(400).json({ message: 'User not found' });
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) return res.status(400).json({ message: 'Invalid credentials' });
+
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
+
+    res.status(200).json({ token, user });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error' });
+  }
+};

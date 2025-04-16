@@ -1,0 +1,78 @@
+.login-page {
+    min-height: calc(100vh - 160px); /* navbar (80px) + footer (80px) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f6fa;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .login-card {
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    width: 360px;
+  }
+  
+  .login-card h2 {
+    font-size: 1.25rem;
+    color: #1e3c72;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .login-card label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #333;
+    font-size: 0.9rem;
+  }
+  
+  .login-card input {
+    width: 100%;
+    padding: 0.65rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+  }
+  
+  .email-format {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: -0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .login-card button {
+    width: 100%;
+    background-color: #102c57;
+    color: white;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+  
+  .login-card button:hover {
+    background-color: #183b6b;
+  }
+  
+  .signup-text {
+    text-align: center;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+  }
+  
+  .signup-text a {
+    color: #102c57;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  

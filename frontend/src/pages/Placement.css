@@ -1,0 +1,82 @@
+/* Hero Section */
+.placement-hero {
+    background: linear-gradient(90deg, #142850, #27496d, #0c7b93);
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+  }
+  
+  .placement-hero h2 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  .placement-hero p {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+  
+  /* Placement Cards */
+  .placement-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 20px;
+    background-color: #f8f9fc;
+  }
+  
+  .placement-card {
+    background: white;
+    width: 280px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .placement-card .icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Success Stories */
+  .success-heading {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .success-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .success-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 20px;
+    width: 300px;
+  }
+  
+  .success-card .quote {
+    font-style: italic;
+    margin-bottom: 15px;
+  }
+  
+  .success-card .author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .success-card .avatar {
+    background-color: #e1f0ff;
+    border-radius: 50%;
+    padding: 10px;
+    font-weight: bold;
+  }
+  

@@ -1,130 +1,78 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import './Home.css';
+import { Link, useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import FeatureCard from '../components/FeatureCard';
 
-// Add this to your index.html or use @import in your main CSS
-// <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-const sections = [
-  { title: 'Academics', description: 'Access study materials, notes, and guidance' },
-  { title: 'Placements', description: 'Get info, prep resources, and support' },
-  { title: 'Forum', description: 'Discuss, ask doubts, and connect' },
-  { title: 'Contests', description: 'Participate in challenges and show your talent' },
-  { title: 'Chat', description: 'Start conversations with your peers' },
-  { title: 'Profile', description: 'Build your profile and showcase your journey' },
-];
-
-export default function CampusConnectHome() {
-  const handleLogin = () => {
-    alert("Redirecting to login page...");
-  };
-
-  const handleNavigate = (section) => {
-    alert(`Navigating to ${section} section...`);
-  };
-
-  useEffect(() => {
-    const cards = document.querySelectorAll('.fade-in');
-    cards.forEach((card, i) => {
-      card.style.animationDelay = `${i * 0.2}s`;
-      card.classList.add('visible');
-    });
-  }, []);
+function Home() {
+  const navigate = useNavigate();
 
   return (
-    <div
-      style={{
-        fontFamily: 'Poppins, sans-serif',
-        minHeight: '100vh',
-        background: 'linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)',
-        color: '#333',
-      }}
-    >
-      <header
-        style={{
-          textAlign: 'center',
-          padding: '60px 30px 40px',
-          color: 'white',
-        }}
-      >
-        <h1 style={{ fontSize: '48px', fontWeight: '700', marginBottom: '10px' }}>
-          🎓 Welcome to <span style={{ color: '#ffd700' }}>CampusConnect</span>
-        </h1>
-        <p style={{ fontSize: '20px' }}>Collaborate, learn, and grow with your peers!</p>
-        <button
-          onClick={handleLogin}
-          style={{
-            marginTop: '20px',
-            backgroundColor: '#fff',
-            color: '#0077cc',
-            border: 'none',
-            padding: '12px 24px',
-            fontWeight: '600',
-            borderRadius: '8px',
-            fontSize: '16px',
-            cursor: 'pointer',
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.15)',
-            transition: 'all 0.3s ease',
-          }}
-          onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
-          onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-        >
-          Login
-        </button>
+    <div className="home-container">
+      <Navbar />
+
+      <header className="hero-section">
+        <h1>Connect, Learn, Succeed</h1>
+        <p>
+          A platform where juniors and seniors collaborate for academic excellence and placement success
+        </p>
+        <div className="hero-buttons">
+          <button onClick={() => navigate('/placements')}>Explore Placement Resources</button>
+          <button onClick={() => navigate('/academics')}>Browse Academic Materials</button>
+        </div>
       </header>
 
-      <main
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '30px',
-          padding: '40px 60px 80px',
-        }}
-      >
-        {sections.map((sec, i) => (
-          <div
-            key={sec.title}
-            className="fade-in"
-            onClick={() => handleNavigate(sec.title)}
-            style={{
-              backgroundColor: '#fff',
-              padding: '24px',
-              borderRadius: '16px',
-              boxShadow: '0 8px 20px rgba(0, 0, 0, 0.1)',
-              textAlign: 'center',
-              cursor: 'pointer',
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = 'translateY(-6px) scale(1.03)';
-              e.currentTarget.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = 'translateY(0) scale(1)';
-              e.currentTarget.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.1)';
-            }}
-          >
-            <h3 style={{ fontSize: '22px', fontWeight: '600', marginBottom: '10px' }}>{sec.title}</h3>
-            <p style={{ fontSize: '15px', color: '#555' }}>{sec.description}</p>
-          </div>
-        ))}
-      </main>
+      <section className="choose-path">
+        <h2>Choose Your Path</h2>
+        <div className="path-options">
+          <Link to="/placements" className="feature-link">
+            <FeatureCard
+              title="Placement Track"
+              description="Access materials, tips, and a network tailored for acing placements."
+            />
+          </Link>
+          <Link to="/academics" className="feature-link">
+            <FeatureCard
+              title="Academic Track"
+              description="Dive into academic resources and collaborate on educational growth."
+            />
+          </Link>
+        </div>
+      </section>
 
-      {/* CSS for fade-in effect */}
-      <style>{`
-        .fade-in {
-          opacity: 0;
-          transform: translateY(30px);
-          animation: fadeInUp 0.6s forwards;
-        }
-        .fade-in.visible {
-          opacity: 1;
-        }
-        @keyframes fadeInUp {
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
+      <section className="why-connect">
+        <h2>Why Campus Connect?</h2>
+        <div className="features-grid">
+          <FeatureCard
+            title="Mentorship Network"
+            description="Connect with seniors to gain insights into academics and placements."
+          />
+          <FeatureCard
+            title="Skill Development"
+            description="Participate in projects and develop technical and soft skills."
+          />
+          <FeatureCard
+            title="Resource Sharing"
+            description="Access curated resources shared by peers and alumni."
+          />
+        </div>
+      </section>
+
+      <section className="get-started">
+        <h3>Ready to Get Started?</h3>
+        <p>
+          Join our community of students and alumni working together for better academic and career outcomes.
+        </p>
+        <div className="auth-buttons">
+          <button onClick={() => navigate('/register')}>Create Account</button>
+          <button onClick={() => navigate('/login')}>Log In</button>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }
+
+export default Home;

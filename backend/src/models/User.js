@@ -1,14 +1,11 @@
-const db = require("../config/database");
+const mongoose = require('mongoose');
 
-const createUser = (user, callback) => {
-  const { name, email, password } = user;
-  db.run(
-    "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
-    [name, email, password],
-    function (err) {
-      callback(err, this?.lastID);
-    }
-  );
-};
+const userSchema = new mongoose.Schema({
+  fullName: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  usn: { type: String, required: true, unique: true },
+  admittedYear: { type: String, required: true },
+  password: { type: String, required: true },
+});
 
-module.exports = { createUser };
+module.exports = mongoose.model('User', userSchema);
