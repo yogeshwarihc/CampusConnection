@@ -5,6 +5,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Placements from './pages/Placements';
 import Academics from './pages/Academics';
+import ResourcesPage from './pages/ResourcesPage';
+
 // Add other pages when ready: Placements, Academics, etc.
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/Placements" element={<Placements/>}/>
         <Route path="/Academics" element={<Academics/>}/>
+        <Route path="/resources" element={<ResourcesPage />} />
+        
         {/* Add other routes here */}
       </Routes>
     </Router>

@@ -1,23 +1,37 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
-import { Link } from 'react-router-dom';
 
-function Navbar() {
+const Navbar = () => {
+  const navigate = useNavigate();
+  const isLoggedIn = localStorage.getItem('token'); // or 'user' or whatever you use
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // clear login data
+    navigate('/login'); // redirect to login page
+  };
+
   return (
     <nav className="navbar">
-      <div className="navbar-left">
-        <h2 className="logo"><Link to="/">Campus Connect</Link></h2>
-      </div>
-      <div className="navbar-right">
-        <Link to="/">Home</Link>
-        <Link to="/chat">Chat</Link>
-        <Link to="/notifications">Notifications</Link>
-        <Link to="/profile">Profile</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/Register">SignUp</Link>
+      <Link to="/" className="nav-brand">Campus Connect</Link>
+      <div className="nav-links">
+        
+      {isLoggedIn ? (
+          <>
+            <Link to="/academic">Academic</Link>
+            <Link to="/resources">Resources</Link>
+            <Link to="/profile">Profile</Link>
+            <button onClick={handleLogout} className="logout-button">Logout</button>
+          </>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Signup</Link>
+          </>
+        )}
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

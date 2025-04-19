@@ -1,0 +1,65 @@
+/* ResourceCard.css */
+
+.resource-card {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.resource-card:hover {
+  transform: translateY(-3px);
+}
+
+.left {
+  margin-right: 20px;
+}
+
+.icon {
+  font-size: 2.5rem;
+  color: #2bb3c0;
+}
+
+.middle {
+  flex: 1;
+}
+
+.middle h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.middle p {
+  margin: 0;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.right button {
+  background-color: #2bb3c0;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.right button:hover {
+  background-color: #2299a6;
+}

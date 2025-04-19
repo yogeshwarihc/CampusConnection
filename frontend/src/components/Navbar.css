@@ -1,25 +1,27 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(to right, #1e3c72, #2a5298);
-    padding: 1rem 2rem;
-    color: white;
-  }
-  
-  .navbar .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .navbar a {
-    color: white;
-    margin-left: 1.5rem;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  .navbar a:hover {
-    text-decoration: underline;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #2f0555;
+  color: white;
+}
+
+.nav-brand {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-links a,
+.logout-button {
+  margin-left: 1rem;
+  color: white;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+.logout-button:hover {
+  text-decoration: underline;
+}

@@ -61,9 +61,13 @@ if (!usnRegex.test(usn)) {
     await newUser.save();
     res.status(201).json({ message: 'User registered successfully' });
   } catch (err) {
+    console.error('Registration Error:', err); 
     res.status(500).json({ message: 'Server error' });
   }
 };
+console.log('JWT_SECRET:', process.env.JWT_SECRET);
+console.log('MONGO_URI:', process.env.MONGO_URI); // optional
+
 
 exports.login = async (req, res) => {
   const { email, password } = req.body;

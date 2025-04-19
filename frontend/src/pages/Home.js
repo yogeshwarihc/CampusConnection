@@ -1,12 +1,22 @@
 import React from 'react';
 import './Home.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FeatureCard from '../components/FeatureCard';
 
 function Home() {
   const navigate = useNavigate();
+
+  // Function to handle protected navigation
+  const handleNavigation = (path) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate(path);
+    } else {
+      navigate('/login');
+    }
+  };
 
   return (
     <div className="home-container">
@@ -18,26 +28,26 @@ function Home() {
           A platform where juniors and seniors collaborate for academic excellence and placement success
         </p>
         <div className="hero-buttons">
-          <button onClick={() => navigate('/placements')}>Explore Placement Resources</button>
-          <button onClick={() => navigate('/academics')}>Browse Academic Materials</button>
+          <button onClick={() => handleNavigation('/placements')}>Explore Placement Resources</button>
+          <button onClick={() => handleNavigation('/academics')}>Browse Academic Materials</button>
         </div>
       </header>
 
       <section className="choose-path">
         <h2>Choose Your Path</h2>
         <div className="path-options">
-          <Link to="/placements" className="feature-link">
+          <div className="feature-link" onClick={() => handleNavigation('/placements')}>
             <FeatureCard
               title="Placement Track"
               description="Access materials, tips, and a network tailored for acing placements."
             />
-          </Link>
-          <Link to="/academics" className="feature-link">
+          </div>
+          <div className="feature-link" onClick={() => handleNavigation('/academics')}>
             <FeatureCard
               title="Academic Track"
               description="Dive into academic resources and collaborate on educational growth."
             />
-          </Link>
+          </div>
         </div>
       </section>
 
