@@ -29,18 +29,21 @@ const Academic = () => {
       </div>
 
       <div className="placement-section">
-        {AcademicData.map((item, idx) => {
-          // Navigate only on Academic Resources card
-          const isResource = item.title === "Academic Resources";
-          return isResource ? (
-            <Link key={idx} to="/resources" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <PlacementCard {...item} />
-            </Link>
-          ) : (
-            <PlacementCard key={idx} {...item} />
-          );
-        })}
-      </div>
+  {AcademicData.map((item, idx) => {
+    let linkTo = null;
+
+    if (item.title === "Academic Resources") linkTo = "/resources";
+    else if (item.title === "Previous year papers") linkTo = "/papers";
+
+    return linkTo ? (
+      <Link key={idx} to={linkTo} style={{ textDecoration: 'none', color: 'inherit' }}>
+        <PlacementCard {...item} />
+      </Link>
+    ) : (
+      <PlacementCard key={idx} {...item} />
+    );
+  })}
+</div>
 
       <h3 className="success-heading">Popular Resources</h3>
       <div className="success-section">
