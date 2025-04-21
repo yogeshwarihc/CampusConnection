@@ -10,6 +10,7 @@ const connectDB = require('./config/database');
 const authRoutes = require('./routes/authRouter');
 const resourceRoutes = require('./routes/resources');
 const previousPapersRoute = require('./routes/paperRoutes');
+const discussionRoutes = require('./routes/discussionRoutes');
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 app.use('/api/auth', authRoutes);
 app.use('/api/resources', resourceRoutes);
 app.use('/api/papers', previousPapersRoute);
+app.use('/api/discussions', discussionRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

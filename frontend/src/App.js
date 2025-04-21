@@ -7,7 +7,7 @@ import Placements from './pages/Placements';
 import Academics from './pages/Academics';
 import ResourcesPage from './pages/ResourcesPage';
 import PreviousPapers from './pages/PreviousPapers';
-
+import DiscussionsPage from './pages/DiscussionsPage';
 // Add other pages when ready: Placements, Academics, etc.
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
         <Route path="/Academics" element={<Academics/>}/>
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/papers" element={<PreviousPapers />} />
-        
+        <Route path="/exams" element={<DiscussionsPage />} />
         {/* Add other routes here */}
       </Routes>
     </Router>

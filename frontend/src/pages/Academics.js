@@ -34,6 +34,7 @@ const Academic = () => {
 
     if (item.title === "Academic Resources") linkTo = "/resources";
     else if (item.title === "Previous year papers") linkTo = "/papers";
+    else if (item.title === "Exams Discussions") linkTo = "/exams";
 
     return linkTo ? (
       <Link key={idx} to={linkTo} style={{ textDecoration: 'none', color: 'inherit' }}>
