@@ -11,6 +11,8 @@ const authRoutes = require('./routes/authRouter');
 const resourceRoutes = require('./routes/resources');
 const previousPapersRoute = require('./routes/paperRoutes');
 const discussionRoutes = require('./routes/discussionRoutes');
+const experienceRoutes = require('./routes/experienceRoutes');
+const subjectRoutes = require('./routes/subjectRoutes');
 
 const app = express();
 
@@ -27,6 +29,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/resources', resourceRoutes);
 app.use('/api/papers', previousPapersRoute);
 app.use('/api/discussions', discussionRoutes);
+app.use('/api/experiences', experienceRoutes);
+app.use('/api/subjects', subjectRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

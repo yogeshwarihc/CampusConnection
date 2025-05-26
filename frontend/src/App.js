@@ -8,6 +8,8 @@ import Academics from './pages/Academics';
 import ResourcesPage from './pages/ResourcesPage';
 import PreviousPapers from './pages/PreviousPapers';
 import DiscussionsPage from './pages/DiscussionsPage';
+import ExperiencesPage from './pages/ExperiencesPage';
+import SubjectsPage from './pages/SubjectsPage';
 // Add other pages when ready: Placements, Academics, etc.
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/papers" element={<PreviousPapers />} />
         <Route path="/exams" element={<DiscussionsPage />} />
+        <Route path="/experience" element={<ExperiencesPage />} />
+        <Route path="/subjects" element={<SubjectsPage />} />
         {/* Add other routes here */}
       </Routes>
     </Router>
