@@ -10,6 +10,9 @@ import PreviousPapers from './pages/PreviousPapers';
 import DiscussionsPage from './pages/DiscussionsPage';
 import ExperiencesPage from './pages/ExperiencesPage';
 import SubjectsPage from './pages/SubjectsPage';
+
+import Job from './pages/job';
+import Project from './pages/Projects';
 // Add other pages when ready: Placements, Academics, etc.
 
 function App() {
@@ -26,6 +29,10 @@ function App() {
         <Route path="/exams" element={<DiscussionsPage />} />
         <Route path="/experience" element={<ExperiencesPage />} />
         <Route path="/subjects" element={<SubjectsPage />} />
+         <Route path="/Placements" element={<Placements/>}/>
+        <Route path="/Academics" element={<Academics/>}/>
+        <Route path="/Job" element={<Job/>}/>
+        <Route path="/Projects" element={<Project/>}/>
         {/* Add other routes here */}
       </Routes>
     </Router>

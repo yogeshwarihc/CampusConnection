@@ -1,0 +1,106 @@
+.opportunities-container {
+    background-color: #f6f7fb;
+    min-height: 100vh;
+    padding: 30px;
+  }
+  
+  .hero-section {
+    background: linear-gradient(to right, #0f6173, #195c6e);
+    color: white;
+    padding: 40px 30px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+  }
+  
+  .hero-section h1 {
+    margin: 0;
+    font-size: 28px;
+  }
+  
+  .hero-section p {
+    margin-top: 8px;
+    font-size: 14px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #142f54;
+  }
+  
+  .post-btn {
+    background-color: #047857;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .post-btn:hover {
+    background-color: #065f46;
+  }
+  
+  .opportunity-form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .opportunity-form input,
+  .opportunity-form select,
+  .opportunity-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .opportunity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .opportunity-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  
+  .opportunity-card h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 14px;
+    color: #555;
+    margin: 10px 0;
+  }
+  .toggle-internship-date {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .toggle-internship-date input {
+    margin-right: 10px;
+  }

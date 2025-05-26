@@ -13,6 +13,8 @@ const previousPapersRoute = require('./routes/paperRoutes');
 const discussionRoutes = require('./routes/discussionRoutes');
 const experienceRoutes = require('./routes/experienceRoutes');
 const subjectRoutes = require('./routes/subjectRoutes');
+const opportunityRoutes = require('./routes/OpportunityRoutes');
+const projectRoutes = require('./routes/projectRoutes');
 
 const app = express();
 
@@ -31,6 +33,10 @@ app.use('/api/papers', previousPapersRoute);
 app.use('/api/discussions', discussionRoutes);
 app.use('/api/experiences', experienceRoutes);
 app.use('/api/subjects', subjectRoutes);
+app.use('/api/opportunities', opportunityRoutes);
+
+app.use('/api/projects', projectRoutes);
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
