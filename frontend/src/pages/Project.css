@@ -1,0 +1,123 @@
+.project-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+    color: #142f54; 
+}
+
+.projects-section {
+  margin-top: 20px;
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.toggle-form-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.form-card {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.form-card input,
+.form-card textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-card .tech-input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-card .tech-tags {
+  margin-top: 10px;
+}
+
+.tag {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel-btn,
+.submit-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.project-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.project-card .meta {
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.project-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.project-card .tech-tags {
+  margin-top: 10px;
+}
+
+.project-card .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.project-card a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.join-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}

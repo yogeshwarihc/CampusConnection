@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PlacementCard from '../components/PlacementCard';
 import SuccessStoryCard from '../components/SuccessStoryCard';
 import './Placement.css';
-import { Link } from 'react-router-dom';
 
 const placementData = [
   { title: "Internship & Job Board", icon: "🧑‍💼", description: "Browse verified listings for internships and jobs." },
@@ -30,21 +30,24 @@ const Placements = () => {
       </div>
 
       <div className="placement-section">
-  {placementData.map((item, idx) => {
-    let linkTo = null;
-
-    if (item.title === "Interview Experiences") linkTo = "/experience";
-    else if(item.title==="Placement Resources") linkTo = "/subjects";
-
-    return linkTo ? (
-      <Link key={idx} to={linkTo} style={{ textDecoration: 'none', color: 'inherit' }}>
-        <PlacementCard {...item} />
-      </Link>
-    ) : (
-      <PlacementCard key={idx} {...item} />
-    );
-  })}
-</div>
+        {placementData.map((item, idx) => {
+          if (item.title === "Internship & Job Board") {
+            return (
+              <Link to="/job" key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <PlacementCard {...item} />
+              </Link>
+            );
+          } else if (item.title === "Project Collaboration") {
+            return (
+              <Link to="/projects" key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <PlacementCard {...item} />
+              </Link>
+            );
+          } else {
+            return <PlacementCard key={idx} {...item} />;
+          }
+        })}
+      </div>
 
       <h3 className="success-heading">Success Stories</h3>
       <div className="success-section">
