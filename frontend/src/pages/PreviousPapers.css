@@ -1,0 +1,36 @@
+.previous-papers-container {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .upload-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .papers-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  
+  .paper-card {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    flex: 1 1 30%;
+  }
+  
+  .download-btn {
+    background: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.5rem;
+  }
+  
