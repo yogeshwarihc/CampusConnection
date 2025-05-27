@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import PlacementCard from '../components/PlacementCard';
 import SuccessStoryCard from '../components/SuccessStoryCard';
 import './Placement.css';
+import { Link } from 'react-router-dom';
 
 const placementData = [
   { title: "Internship & Job Board", icon: "🧑‍💼", description: "Browse verified listings for internships and jobs." },
@@ -37,7 +37,22 @@ const Placements = () => {
                 <PlacementCard {...item} />
               </Link>
             );
-          } else if (item.title === "Project Collaboration") {
+          }
+          else if (item.title === "Interview Experiences") {
+            return (
+              <Link to="/experience" key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <PlacementCard {...item} />
+              </Link>
+            );
+          }
+          else if (item.title === "Placement Resources") {
+            return (
+              <Link to="/resources" key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <PlacementCard {...item} />
+              </Link>
+            );
+          }
+          else if (item.title === "Project Collaboration") {
             return (
               <Link to="/projects" key={idx} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <PlacementCard {...item} />
